@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useNav } from "@/layout/hooks/useNav";
+import avatar from "@/assets/login/avatar.svg?component";
 
 const props = defineProps({
   collapse: Boolean
 });
 
-const { title } = useNav();
+const { shortTitle } = useNav();
 </script>
 
 <template>
@@ -14,22 +15,22 @@ const { title } = useNav();
       <router-link
         v-if="props.collapse"
         key="props.collapse"
-        :title="title"
+        :title="shortTitle"
         class="sidebar-logo-link"
         to="/"
       >
-        <FontIcon icon="team-iconlogo" svg style="width: 35px; height: 35px" />
-        <span class="sidebar-title">{{ title }}</span>
+        <avatar style="width: 35px; height: 35px" />
+        <span class="sidebar-title">{{ shortTitle }}</span>
       </router-link>
       <router-link
         v-else
         key="expand"
-        :title="title"
+        :title="shortTitle"
         class="sidebar-logo-link"
         to="/"
       >
-        <FontIcon icon="team-iconlogo" svg style="width: 35px; height: 35px" />
-        <span class="sidebar-title">{{ title }}</span>
+        <avatar style="width: 35px; height: 35px" />
+        <span class="sidebar-title">{{ shortTitle }}</span>
       </router-link>
     </transition>
   </div>
@@ -60,7 +61,7 @@ const { title } = useNav();
       color: #1890ff;
       font-weight: 600;
       font-size: 20px;
-      margin-top: 10px;
+      margin-top: 5px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
     }
   }

@@ -111,7 +111,7 @@ router.beforeEach((to: toRouteType, _from, next) => {
   if (!externalLink) {
     to.matched.some(item => {
       if (!item.meta.title) return "";
-      const Title = getConfig().Title;
+      const Title = getConfig().ShortTitle;
       if (Title) document.title = `${item.meta.title} | ${Title}`;
       else document.title = item.meta.title as string;
     });

@@ -46,9 +46,13 @@ export function useNav() {
     return $config.Title;
   });
 
+  const shortTitle = computed(() => {
+    return $config.ShortTitle;
+  });
+
   /** 动态title */
   function changeTitle(meta: routeMetaType) {
-    const Title = getConfig().Title;
+    const Title = getConfig().ShortTitle;
     if (Title) document.title = `${meta.title} | ${Title}`;
     else document.title = meta.title;
   }
@@ -123,6 +127,7 @@ export function useNav() {
   return {
     route,
     title,
+    shortTitle,
     device,
     layout,
     logout,

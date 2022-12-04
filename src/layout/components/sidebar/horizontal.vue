@@ -7,6 +7,7 @@ import { useNav } from "@/layout/hooks/useNav";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
+import avatar from "@/assets/login/avatar.svg?component";
 
 const menuRef = ref();
 
@@ -37,7 +38,7 @@ watch(
 <template>
   <div class="horizontal-header">
     <div class="horizontal-header-left" @click="backHome">
-      <FontIcon icon="team-iconlogo" svg style="width: 35px; height: 35px" />
+      <avatar style="width: 35px; height: 35px" />
       <h4>{{ title }}</h4>
     </div>
     <el-menu
@@ -64,7 +65,7 @@ watch(
       <el-dropdown trigger="click">
         <span class="el-dropdown-link navbar-bg-hover">
           <img
-            src="https://avatars.githubusercontent.com/u/44761321?v=4"
+            src="https://avatars.githubusercontent.com/u/25995821?v=4"
             :style="avatarsStyle"
           />
           <p v-if="username" class="dark:text-white">{{ username }}</p>

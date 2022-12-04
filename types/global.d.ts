@@ -78,6 +78,7 @@ declare global {
   interface ServerConfigs {
     Version?: string;
     Title?: string;
+    ShortTitle?: string;
     FixedHeader?: boolean;
     HiddenSideBar?: boolean;
     MultiTagsCache?: boolean;

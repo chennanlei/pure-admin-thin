@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { getConfig } from "@/config";
+
+const title = getConfig().Title;
+
 defineOptions({
   name: "Welcome"
 });
 </script>
 
 <template>
-  <h1>Pure-Admin-Thin（非国际化版本）</h1>
+  <h1>欢迎访问{{ title }}</h1>
 </template>
