@@ -1,9 +1,7 @@
-import UserFilled from "@iconify-icons/ep/user-filled";
-
 export default {
   path: "/dgfjspw",
   meta: {
-    icon: UserFilled,
+    icon: "userFilled",
     title: "DGFJSPW",
     rank: 4
   },

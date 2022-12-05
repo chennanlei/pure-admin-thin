@@ -1,9 +1,7 @@
-import DataAnalysis from "@iconify-icons/ep/data-analysis";
-
 export default {
   path: "/gfjsp",
   meta: {
-    icon: DataAnalysis,
+    icon: "dataAnalysis",
     title: "GFJSP",
     rank: 2
   },

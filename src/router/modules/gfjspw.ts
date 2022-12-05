@@ -1,9 +1,7 @@
-import User from "@iconify-icons/ep/user";
-
 export default {
   path: "/gfjspw",
   meta: {
-    icon: User,
+    icon: "user",
     title: "GFJSPW",
     rank: 2
   },
