@@ -8,17 +8,18 @@ import {
 } from "vue-router";
 import { router } from "./index";
 import { isProxy, toRaw } from "vue";
-import { loadEnv } from "../../build";
 import { useTimeoutFn } from "@vueuse/core";
 import { RouteConfigs } from "@/layout/types";
 import {
   isString,
+  cloneDeep,
+  isAllEmpty,
+  intersection,
   storageSession,
   isIncludeAllChildren
 } from "@pureadmin/utils";
 import { getConfig } from "@/config";
 import { buildHierarchyTree } from "@/utils/tree";
-import { cloneDeep, intersection } from "lodash-unified";
 import { sessionKey, type DataInfo } from "@/utils/auth";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 const IFrame = () => import("@/layout/frameView.vue");
@@ -28,19 +29,25 @@ const modulesRoutes = import.meta.glob("/src/views/**/*.{vue,tsx}");
 // 动态路由
 import { getAsyncRoutes } from "@/api/routes";
 
+function handRank(routeInfo: any) {
+  const { name, path, parentId, meta } = routeInfo;
+  return isAllEmpty(parentId)
+    ? isAllEmpty(meta?.rank) ||
+      (meta?.rank === 0 && name !== "Home" && path !== "/")
+      ? true
+      : false
+    : false;
+}
+
 /** 按照路由中meta下的rank等级升序来排序路由 */
 function ascending(arr: any[]) {
-  arr.forEach(v => {
-    if (v?.meta?.rank === null) v.meta.rank = undefined;
-    if (v?.meta?.rank === 0) {
-      if (v.name !== "Home" && v.path !== "/") {
-        console.warn("rank only the home page can be 0");
-      }
-    }
+  arr.forEach((v, index) => {
+    // 当rank不存在时，根据顺序自动创建，首页路由永远在第一位
+    if (handRank(v)) v.meta.rank = index + 2;
   });
   return arr.sort(
     (a: { meta: { rank: number } }, b: { meta: { rank: number } }) => {
-      return a?.meta?.rank - b?.meta?.rank;
+      return a?.meta.rank - b?.meta.rank;
     }
   );
 }
@@ -77,7 +84,7 @@ function isOneOfArray(a: Array<string>, b: Array<string>) {
 /** 从sessionStorage里取出当前登陆用户的角色roles，过滤无权限的菜单 */
 function filterNoPermissionTree(data: RouteComponent[]) {
   const currentRoles =
-    storageSession.getItem<DataInfo<number>>(sessionKey)?.roles ?? [];
+    storageSession().getItem<DataInfo<number>>(sessionKey)?.roles ?? [];
   const newTree = cloneDeep(data).filter((v: any) =>
     isOneOfArray(v.meta?.roles, currentRoles)
   );
@@ -189,7 +196,7 @@ function initRouter() {
   if (getConfig()?.CachingAsyncRoutes) {
     // 开启动态路由缓存本地sessionStorage
     const key = "async-routes";
-    const asyncRouteList = storageSession.getItem(key) as any;
+    const asyncRouteList = storageSession().getItem(key) as any;
     if (asyncRouteList && asyncRouteList?.length > 0) {
       return new Promise(resolve => {
         handleAsyncRoutes(asyncRouteList);
@@ -199,7 +206,7 @@ function initRouter() {
       return new Promise(resolve => {
         getAsyncRoutes().then(({ data }) => {
           handleAsyncRoutes(cloneDeep(data));
-          storageSession.setItem(key, data);
+          storageSession().setItem(key, data);
           resolve(router);
         });
       });
@@ -234,7 +241,7 @@ function formatFlatteningRoutes(routesList: RouteRecordRaw[]) {
 
 /**
  * 一维数组处理成多级嵌套数组（三级及以上的路由全部拍成二级，keep-alive 只支持到二级缓存）
- * https://github.com/xiaoxian521/vue-pure-admin/issues/67
+ * https://github.com/pure-admin/vue-pure-admin/issues/67
  * @param routesList 处理后的一维路由菜单数组
  * @returns 返回将一维数组重新处理成规定路由的格式
  */
@@ -252,7 +259,7 @@ function formatTwoStageRoutes(routesList: RouteRecordRaw[]) {
         children: []
       });
     } else {
-      newRoutesList[0].children.push({ ...v });
+      newRoutesList[0]?.children.push({ ...v });
     }
   });
   return newRoutesList;
@@ -315,8 +322,7 @@ function addAsyncRoutes(arrRoutes: Array<RouteRecordRaw>) {
 }
 
 /** 获取路由历史模式 https://next.router.vuejs.org/zh/guide/essentials/history-mode.html */
-function getHistoryMode(): RouterHistory {
-  const routerHistory = loadEnv().VITE_ROUTER_HISTORY;
+function getHistoryMode(routerHistory): RouterHistory {
   // len为1 代表只有历史模式 为2 代表历史模式中存在base参数 https://next.router.vuejs.org/zh/api/#%E5%8F%82%E6%95%B0-1
   const historyMode = routerHistory.split(",");
   const leftMode = historyMode[0];
@@ -348,6 +354,7 @@ function hasAuth(value: string | Array<string>): boolean {
   if (!value) return false;
   /** 从当前路由的`meta`字段里获取按钮级别的所有自定义`code`值 */
   const metaAuths = getAuths();
+  if (!metaAuths) return false;
   const isAuths = isString(value)
     ? metaAuths.includes(value)
     : isIncludeAllChildren(value, metaAuths);
@@ -360,6 +367,7 @@ export {
   ascending,
   filterTree,
   initRouter,
+  addPathMatch,
   isOneOfArray,
   getHistoryMode,
   addAsyncRoutes,

@@ -1,5 +1,5 @@
 {
-  "Version": "3.9.3",
+  "Version": "3.9.7",
   "Title": "考虑灰信息的航空复材铺垫车间调度平台",
   "ShortTitle": "铺垫灰调度平台",
   "FixedHeader": true,
@@ -17,6 +17,6 @@
   "ShowLogo": true,
   "ShowModel": "smart",
   "MenuArrowIconNoTransition": true,
-  "CachingAsyncRoutes": true,
+  "CachingAsyncRoutes": false,
   "TooltipEffect": "light"
 }
