@@ -5,7 +5,9 @@
   bottom: 0;
   z-index: -1;
 }
-
+.outline-none {
+  width: 350px;
+}
 .login-container {
   width: 100vw;
   height: 100vh;
@@ -19,6 +21,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  /*margin-left: 100px;*/
 }
 
 .img img {

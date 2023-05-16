@@ -2,7 +2,7 @@ export default {
   path: "/gfjspw",
   meta: {
     icon: "user",
-    title: "GFJSPW",
+    title: "B车间生产计划",
     rank: 2
   },
   children: [
@@ -19,7 +19,16 @@ export default {
       name: "GFJSPWScheduling",
       component: () => import("@/views/gfjspw/scheduling.vue"),
       meta: {
-        title: "生产调度"
+        title: "生产调度",
+        showLink: false
+      }
+    },
+    {
+      path: "/gfjspw/planOutput",
+      name: "GFJSPWPlanOutput",
+      component: () => import("@/views/gfjspw/planOutput.vue"),
+      meta: {
+        title: "计划输出"
       }
     }
   ]

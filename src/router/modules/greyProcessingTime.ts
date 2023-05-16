@@ -4,7 +4,7 @@ export default {
   path: "/greyProcessingTime",
   meta: {
     icon: Timer,
-    title: "灰工时",
+    title: "工时数据分析",
     rank: 1
   },
   children: [
@@ -13,16 +13,16 @@ export default {
       name: "greyProcessingTimeExtraction",
       component: () => import("@/views/greyProcessingTime/extraction.vue"),
       meta: {
-        title: "灰工时提取"
-      }
-    },
-    {
-      path: "/greyProcessingTime/evolution",
-      name: "greyProcessingTimeEvolution",
-      component: () => import("@/views/greyProcessingTime/evolution.vue"),
-      meta: {
-        title: "灰工时演化"
+        title: "工时数据分析"
       }
     }
+    // {
+    //   path: "/greyProcessingTime/evolution",
+    //   name: "greyProcessingTimeEvolution",
+    //   component: () => import("@/views/greyProcessingTime/evolution.vue"),
+    //   meta: {
+    //     title: "灰工时演化"
+    //   }
+    // }
   ]
 } as RouteConfigsTable;

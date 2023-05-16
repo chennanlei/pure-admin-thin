@@ -57,7 +57,7 @@ const { shortTitle } = useNav();
     .sidebar-title {
       height: 32px;
       line-height: 32px;
-      margin: 2px 0 0 12px;
+      margin: 2px 0 0 2px;
       color: $subMenuActiveText;
       display: inline-block;
       overflow: hidden;

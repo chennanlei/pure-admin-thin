@@ -12,6 +12,7 @@ import DataAnalysis from "@iconify-icons/ep/data-analysis";
 import DataLine from "@iconify-icons/ep/data-line";
 import User from "@iconify-icons/ep/user";
 import UserFilled from "@iconify-icons/ep/user-filled";
+import DownLoad from "@iconify-icons/ep/download";
 
 addIcon("homeFilled", HomeFilled);
 addIcon("informationLine", InformationLine);
@@ -20,3 +21,4 @@ addIcon("dataAnalysis", DataAnalysis);
 addIcon("dataLine", DataLine);
 addIcon("user", User);
 addIcon("userFilled", UserFilled);
+addIcon("downLoad", DownLoad);

@@ -2,7 +2,7 @@ export default {
   path: "/dgfjspw",
   meta: {
     icon: "userFilled",
-    title: "DGFJSPW",
+    title: "B车间动态调度",
     rank: 4
   },
   children: [
@@ -11,7 +11,17 @@ export default {
       name: "DGFJSPWOrderSelect",
       component: () => import("@/views/dgfjspw/orderSelect.vue"),
       meta: {
-        title: "订单选取"
+        title: "监控反馈",
+        showLink: false
+      }
+    },
+    {
+      path: "/dgfjspw/simulation",
+      name: "DGFJSPWSimulation",
+      component: () => import("@/views/dgfjspw/simulation.vue"),
+      meta: {
+        title: "仿真测试",
+        showLink: false
       }
     },
     {
@@ -23,11 +33,11 @@ export default {
       }
     },
     {
-      path: "/dgfjspw/simulation",
-      name: "DGFJSPWSimulation",
-      component: () => import("@/views/dgfjspw/simulation.vue"),
+      path: "/dgfjspw/planOutput",
+      name: "DGFJSPWPlanOutput",
+      component: () => import("@/views/dgfjspw/planOutput.vue"),
       meta: {
-        title: "仿真测试"
+        title: "计划输出"
       }
     }
   ]

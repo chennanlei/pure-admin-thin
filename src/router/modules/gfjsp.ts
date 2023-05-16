@@ -2,7 +2,7 @@ export default {
   path: "/gfjsp",
   meta: {
     icon: "dataAnalysis",
-    title: "GFJSP",
+    title: "A车间生产计划",
     rank: 2
   },
   children: [
@@ -11,7 +11,7 @@ export default {
       name: "GFJSPOrderSelect",
       component: () => import("@/views/gfjsp/orderSelect.vue"),
       meta: {
-        title: "订单选取"
+        title: "订单处理"
       }
     },
     {
@@ -19,7 +19,16 @@ export default {
       name: "GFJSPScheduling",
       component: () => import("@/views/gfjsp/scheduling.vue"),
       meta: {
-        title: "生产调度"
+        title: "生产排程",
+        showLink: false
+      }
+    },
+    {
+      path: "/gfjsp/planOutput",
+      name: "GFJSPPlanOutput",
+      component: () => import("@/views/gfjsp/planOutput.vue"),
+      meta: {
+        title: "计划输出"
       }
     }
   ]

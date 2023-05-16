@@ -41,6 +41,7 @@
     "element-plus": "^2.2.32",
     "element-resize-detector": "^1.2.4",
     "js-cookie": "^3.0.1",
+    "md-editor-v3": "^2.11.0",
     "mitt": "^3.0.0",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
@@ -48,6 +49,7 @@
     "pinia": "^2.0.32",
     "qs": "^6.11.0",
     "responsive-storage": "^2.2.0",
+    "typeit": "^8.7.1",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",
     "vue-types": "^5.0.2"
