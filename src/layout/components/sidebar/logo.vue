@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getTopMenu } from "@/router/utils";
 import { useNav } from "@/layout/hooks/useNav";
 import avatar from "@/assets/login/avatar.svg?component";
 
@@ -7,6 +8,7 @@ const props = defineProps({
 });
 
 const { shortTitle } = useNav();
+const topPath = getTopMenu().path;
 </script>
 
 <template>
@@ -17,7 +19,7 @@ const { shortTitle } = useNav();
         key="props.collapse"
         :title="shortTitle"
         class="sidebar-logo-link"
-        to="/"
+        :to="topPath"
       >
         <avatar style="width: 35px; height: 35px" />
         <span class="sidebar-title">{{ shortTitle }}</span>
@@ -27,7 +29,7 @@ const { shortTitle } = useNav();
         key="expand"
         :title="shortTitle"
         class="sidebar-logo-link"
-        to="/"
+        :to="topPath"
       >
         <avatar style="width: 35px; height: 35px" />
         <span class="sidebar-title">{{ shortTitle }}</span>
@@ -38,33 +40,33 @@ const { shortTitle } = useNav();
 
 <style lang="scss" scoped>
 .sidebar-logo-container {
+  position: relative;
   width: 100%;
   height: 48px;
   overflow: hidden;
-  position: relative;
 
   .sidebar-logo-link {
-    height: 100%;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    height: 100%;
 
     img {
-      height: 32px;
       display: inline-block;
+      height: 32px;
     }
 
     .sidebar-title {
-      height: 32px;
-      line-height: 32px;
-      margin: 2px 0 0 2px;
-      color: $subMenuActiveText;
       display: inline-block;
+      height: 32px;
+      margin: 2px 0 0 12px;
       overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       font-size: 18px;
       font-weight: 600;
+      line-height: 32px;
+      color: $subMenuActiveText;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }
