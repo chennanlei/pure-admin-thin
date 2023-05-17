@@ -59,14 +59,6 @@ export const noticesData: TabItem[] = [
         datetime: "一年前",
         description: "",
         type: "1"
-      },
-      {
-        avatar:
-          "https://gw.alipayobjects.com/zos/rmsportal/GvqBnKhFgObvnSGkDsje.png",
-        title: "左侧图标用于区分不同的类型",
-        datetime: "一年前",
-        description: "",
-        type: "1"
       }
     ]
   },
