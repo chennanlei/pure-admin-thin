@@ -18,6 +18,22 @@ export function useColumns() {
     {
       label: "设备地理位置",
       prop: "location"
+    },
+    {
+      label: "资源状态",
+      prop: "status",
+      cellRenderer: ({ row }) => (
+        <el-popover effect="light" trigger="hover" placement="top" width="auto">
+          {{
+            default: () => (
+              <>
+                <div>资源状态: {row.status}</div>
+              </>
+            ),
+            reference: () => <el-tag type="success">{row.status}</el-tag>
+          }}
+        </el-popover>
+      )
     }
   ];
   const carColumns = [
@@ -32,9 +48,29 @@ export function useColumns() {
     {
       label: "可用容量上限",
       prop: "capacity"
+    },
+    {
+      label: "资源状态",
+      prop: "status",
+      cellRenderer: ({ row }) => (
+        <el-popover effect="light" trigger="hover" placement="top" width="auto">
+          {{
+            default: () => (
+              <>
+                <div>资源状态: {row.status}</div>
+              </>
+            ),
+            reference: () => <el-tag type="success">{row.status}</el-tag>
+          }}
+        </el-popover>
+      )
     }
   ];
   const orderColumns = [
+    {
+      type: "selection",
+      align: "left"
+    },
     {
       label: "任务编号",
       prop: "orderNumber"

@@ -1,11 +1,11 @@
 <template>
   <div class="tableClass">
     设备资源
-    <pure-table :data="machineData" :columns="machineColumns" stripe />
+    <pure-table :data="machineData" :columns="newMachineColumns" stripe />
   </div>
   <div class="tableClass">
     车辆资源
-    <pure-table :data="carData" :columns="carColumns" stripe />
+    <pure-table :data="carData" :columns="newCarColumns" stripe />
   </div>
   <div class="rowType">
     <el-button type="primary" :icon="useRenderIcon(RunFill)"
@@ -26,7 +26,24 @@ import DocumentChecked from "@iconify-icons/ep/document-checked";
 import DownloadFill from "@iconify-icons/ri/download-fill";
 import RunFill from "@iconify-icons/ri/run-fill";
 import { useColumns } from "./columns";
+import { computed, defineProps } from "vue";
 const { machineData, machineColumns, carData, carColumns } = useColumns();
+const props = defineProps({
+  showStatus: {
+    type: Boolean,
+    default: true
+  }
+});
+const newMachineColumns = computed(() => {
+  return props.showStatus
+    ? machineColumns
+    : machineColumns.slice(0, useColumns.length - 1);
+});
+const newCarColumns = computed(() => {
+  return props.showStatus
+    ? carColumns
+    : carColumns.slice(0, useColumns.length - 1);
+});
 </script>
 
 <style scoped>

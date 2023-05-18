@@ -32,7 +32,7 @@ setTimeout(() => {
           </template>
           <el-skeleton animated :rows="7" :loading="loading">
             <template #default>
-              <OrderTask />
+              <OrderTask :showOperation="false" :showSelect="false" />
             </template>
           </el-skeleton>
         </el-card>
@@ -51,7 +51,7 @@ setTimeout(() => {
           </template>
           <el-skeleton animated :rows="7" :loading="loading">
             <template #default>
-              <IntegratedScheduling />
+              <IntegratedScheduling :showStatus="false" />
             </template>
           </el-skeleton>
         </el-card>

@@ -3,37 +3,43 @@ const machineData = [
     machineNumber: "AM01",
     type: "SLM",
     capacity: 12,
-    location: "(89, 82)"
+    location: "(89, 82)",
+    status: "正常"
   },
   {
     machineNumber: "AM02",
     type: "SLM",
     capacity: 10,
-    location: "(16, 132)"
+    location: "(16, 132)",
+    status: "正常"
   },
   {
     machineNumber: "AM03",
     type: "SLM",
     capacity: 10,
-    location: "(920, 900)"
+    location: "(920, 900)",
+    status: "正常"
   },
   {
     machineNumber: "AM04",
     type: "SLM",
     capacity: 10,
-    location: "(800, 860)"
+    location: "(800, 860)",
+    status: "正常"
   },
   {
     machineNumber: "AM05",
     type: "SLM",
     capacity: 12,
-    location: "(333, 390)"
+    location: "(330, 390)",
+    status: "正常"
   },
   {
     machineNumber: "AM06",
     type: "SLM",
     capacity: 10,
-    location: "(860, 950)"
+    location: "(860, 950)",
+    status: "正常"
   }
 ];
 
@@ -41,17 +47,20 @@ const carData = [
   {
     carNumber: "VB01",
     type: "运输车",
-    capacity: 40
+    capacity: 40,
+    status: "正常"
   },
   {
     carNumber: "VB01",
     type: "运输车",
-    capacity: 40
+    capacity: 40,
+    status: "正常"
   },
   {
     carNumber: "VB01",
     type: "运输车",
-    capacity: 40
+    capacity: 40,
+    status: "正常"
   }
 ];
 

@@ -19,7 +19,15 @@ setTimeout(() => {
 <template>
   <div>
     <el-row :gutter="24">
-      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-[18px]">
+      <el-col
+        :xs="24"
+        :sm="24"
+        :md="12"
+        :lg="12"
+        :xl="12"
+        class="mb-[18px]"
+        style="height: 800px"
+      >
         <el-card shadow="never" style="height: 100%">
           <template #header>
             <div :class="titleClass">
@@ -38,7 +46,15 @@ setTimeout(() => {
           </el-skeleton>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-[18px]">
+      <el-col
+        :xs="24"
+        :sm="24"
+        :md="12"
+        :lg="12"
+        :xl="12"
+        class="mb-[18px]"
+        style="height: 800px"
+      >
         <el-card shadow="never" style="height: 100%">
           <template #header>
             <div :class="titleClass">

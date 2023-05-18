@@ -21,12 +21,12 @@ const { setOptions, resize } = useECharts(barChartRef as Ref<HTMLDivElement>, {
 
 // 数据，这里假设已经从后端获取到了对应的数据
 const data = [
-  { name: "AM06", used: 95, unused: 5 },
-  { name: "AM05", used: 85, unused: 15 },
-  { name: "AM04", used: 70, unused: 30 },
-  { name: "AM03", used: 80, unused: 20 },
-  { name: "AM02", used: 81, unused: 19 },
-  { name: "AM01", used: 81, unused: 19 }
+  { name: "AM06", used: 83.33, unused: 16.67 },
+  { name: "AM05", used: 83.33, unused: 16.67 },
+  { name: "AM04", used: 41.66, unused: 58.34 },
+  { name: "AM03", used: 58.33, unused: 41.67 },
+  { name: "AM02", used: 75, unused: 25 },
+  { name: "AM01", used: 83.33, unused: 16.67 }
 ];
 
 setOptions(
@@ -81,7 +81,7 @@ setOptions(
         emphasis: {
           focus: "series"
         },
-        color: "#b4b9b4",
+        color: "#c9e7e7",
         data: data.map(item => item.unused)
       }
     ]
