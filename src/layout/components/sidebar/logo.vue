@@ -6,7 +6,7 @@ const props = defineProps({
   collapse: Boolean
 });
 
-const { title } = useNav();
+const { ShortTitle } = useNav();
 </script>
 
 <template>
@@ -20,7 +20,7 @@ const { title } = useNav();
         :to="getTopMenu()?.path ?? '/'"
       >
         <img src="/logo.svg" alt="logo" />
-        <span class="sidebar-title">{{ title }}</span>
+        <span class="sidebar-title">{{ ShortTitle }}</span>
       </router-link>
       <router-link
         v-else
@@ -30,7 +30,7 @@ const { title } = useNav();
         :to="getTopMenu()?.path ?? '/'"
       >
         <img src="/logo.svg" alt="logo" />
-        <span class="sidebar-title">{{ title }}</span>
+        <span class="sidebar-title">{{ ShortTitle }}</span>
       </router-link>
     </transition>
   </div>

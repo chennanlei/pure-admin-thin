@@ -7,11 +7,11 @@
 }
 
 .login-container {
-  width: 100vw;
+  width: 200vw;
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 18rem;
+  grid-gap: 25rem;
   padding: 0 2rem;
 }
 
@@ -27,12 +27,13 @@
 
 .login-box {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
 }
 
 .login-form {
-  width: 360px;
+  width: 400px;
 }
 
 .avatar {

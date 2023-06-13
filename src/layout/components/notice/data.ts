@@ -59,14 +59,6 @@ export const noticesData: TabItem[] = [
         datetime: "一年前",
         description: "",
         type: "1"
-      },
-      {
-        avatar:
-          "https://gw.alipayobjects.com/zos/rmsportal/GvqBnKhFgObvnSGkDsje.png",
-        title: "左侧图标用于区分不同的类型",
-        datetime: "一年前",
-        description: "",
-        type: "1"
       }
     ]
   },
@@ -74,14 +66,6 @@ export const noticesData: TabItem[] = [
     key: "2",
     name: "消息",
     list: [
-      {
-        avatar:
-          "https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg",
-        title: "李白 评论了你",
-        description: "长风破浪会有时,直挂云帆济沧海",
-        datetime: "一年前",
-        type: "2"
-      },
       {
         avatar:
           "https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg",

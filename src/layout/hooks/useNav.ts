@@ -65,6 +65,10 @@ export function useNav() {
     else document.title = meta.title;
   }
 
+  const ShortTitle = computed(() => {
+    return $config.ShortTitle;
+  });
+
   /** 退出登录 */
   function logout() {
     useUserStoreHook().logOut();
@@ -135,6 +139,7 @@ export function useNav() {
   return {
     route,
     title,
+    ShortTitle,
     device,
     layout,
     logout,

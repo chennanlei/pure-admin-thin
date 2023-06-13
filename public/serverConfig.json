@@ -1,6 +1,7 @@
 {
   "Version": "4.3.0",
-  "Title": "PureAdmin",
+  "Title": "航空复材制造铺叠车间人员排班调度原型系统",
+  "ShortTitle": "铺叠班组人员调度",
   "FixedHeader": true,
   "HiddenSideBar": false,
   "MultiTagsCache": false,

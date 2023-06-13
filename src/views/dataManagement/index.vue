@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import TypeIt from "@/components/ReTypeit";
 import { ref, computed } from "vue";
-import P1 from "./components/P1.vue";
-import P2 from "./components/P2.vue";
-import P3 from "./components/P3.vue";
-import P4 from "./components/P4.vue";
+import PartInfo from "./components/partInfo.vue";
+import GroupInfo from "./components/groupInfo.vue";
+import TimeInfo from "./components/timeInfo.vue";
+import ShutdownInfo from "@/views/dataManagement/components/shutdownInfo.vue";
 
 defineOptions({
-  name: "Welcome"
+  name: "DataManagement"
 });
 
 const loading = ref<boolean>(true);
@@ -49,7 +49,7 @@ setTimeout(() => {
             <div :class="titleClass">
               <TypeIt
                 :className="'type-it1'"
-                :values="['系统实施前后计划平均完成率']"
+                :values="['零件信息']"
                 :cursor="false"
                 :speed="120"
               />
@@ -57,7 +57,7 @@ setTimeout(() => {
           </template>
           <el-skeleton animated :rows="7" :loading="loading">
             <template #default>
-              <P1 />
+              <PartInfo />
             </template>
           </el-skeleton>
         </el-card>
@@ -88,7 +88,7 @@ setTimeout(() => {
             <div :class="titleClass">
               <TypeIt
                 :className="'type-it4'"
-                :values="['铺叠班组平均负荷统计']"
+                :values="['班组人员信息']"
                 :cursor="false"
                 :speed="120"
               />
@@ -96,7 +96,7 @@ setTimeout(() => {
           </template>
           <el-skeleton animated :rows="7" :loading="loading">
             <template #default>
-              <P2 />
+              <GroupInfo />
             </template>
           </el-skeleton>
         </el-card>
@@ -128,7 +128,7 @@ setTimeout(() => {
             <div :class="titleClass">
               <TypeIt
                 :className="'type-it3'"
-                :values="['CB一组计划准时完成情况']"
+                :values="['班期信息']"
                 :cursor="false"
                 :speed="120"
               />
@@ -136,7 +136,7 @@ setTimeout(() => {
           </template>
           <el-skeleton animated :rows="7" :loading="loading">
             <template #default>
-              <P3 />
+              <TimeInfo />
             </template>
           </el-skeleton>
         </el-card>
@@ -167,7 +167,7 @@ setTimeout(() => {
             <div :class="titleClass">
               <TypeIt
                 :className="'type-it5'"
-                :values="['CB二组计划准时完成情况']"
+                :values="['班组停工信息']"
                 :cursor="false"
                 :speed="120"
               />
@@ -175,7 +175,7 @@ setTimeout(() => {
           </template>
           <el-skeleton animated :rows="7" :loading="loading">
             <template #default>
-              <P4 />
+              <shutdown-info />
             </template>
           </el-skeleton>
         </el-card>
@@ -185,13 +185,19 @@ setTimeout(() => {
 </template>
 
 <style lang="scss" scoped>
+.el-card :deep(.el-card__header) {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.el-card :deep(.el-card__body) {
+  padding: 5px;
+}
+
 :deep(.el-timeline-item) {
   margin: 6px 0 0 6px;
 }
-.el-card :deep(.el-card__header) {
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
+
 .main-content {
   margin: 20px 20px 0 20px !important;
 }
