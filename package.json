@@ -29,8 +29,6 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "@dhtmlx/gantt-data-provider": "^0.2.0",
-    "@dhtmlx/trial-vue-gantt": "^1.1.2",
     "@iconify-icons/fluent-mdl2": "^1.2.1",
     "@iconify-icons/ic": "^1.2.13",
     "@iconify-icons/icon-park-outline": "^1.2.11",
@@ -45,7 +43,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "dayjs": "^1.11.8",
-    "dhtmlx-gantt": "^8.0.2",
+    "dhtmlx-gantt": "link:/Users/chennanlei/Downloads/gantt_trial",
     "echarts": "^5.4.2",
     "element-plus": "^2.3.6",
     "element-resize-detector": "^1.2.4",

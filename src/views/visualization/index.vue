@@ -1,61 +1,55 @@
 <script setup lang="ts">
-import { computed } from "vue";
-
 defineOptions({
-  name: "OrderManage"
-});
-const titleClass = computed(() => {
-  return ["text-base", "font-medium"];
+  name: "Visualization"
 });
 import { ref, reactive } from "vue";
 import Gantt from "./components/gantt.vue";
 import { tasks, columns } from "./components/data";
 const ganttTasks = reactive({ data: tasks });
 const ganttColumns = ref(columns);
-const scale = [
-  { unit: "day", step: 1, format: "%F %d %l" },
+const rowHeight = ref(100);
+const barHeight = ref(60);
+const scales = [
+  { unit: "day", step: 1, format: "%n月%d日 %l" },
   { unit: "hour", step: 1, format: "%G" }
 ];
 const dateScale = ref("%Y-%m-%d %H:%i");
 </script>
 
 <template>
-  <div>
-    <el-row :gutter="10">
-      <el-col
-        :xs="24"
-        :sm="24"
-        :md="24"
-        :lg="24"
-        :xl="24"
-        :offset="0"
-        class="mb-[18px]"
-        v-motion
-        :initial="{
-          opacity: 0,
-          y: 100
-        }"
-        :enter="{
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: 200
-          }
-        }"
-      >
-        <el-card shadow="never">
-          <template #header>
-            <div :class="titleClass">人员排班甘特图</div>
-          </template>
-          <gantt
-            :tasks="ganttTasks"
-            :columns="ganttColumns"
-            :scale="scale"
-            :dateScale="dateScale"
-            style="height: 800px"
-          />
-        </el-card>
-      </el-col>
-    </el-row>
-  </div>
+  <gantt
+    :tasks="ganttTasks"
+    :columns="ganttColumns"
+    :scales="scales"
+    :dateScale="dateScale"
+    :rowHeight="rowHeight"
+    :barHeight="barHeight"
+    style="height: 700px"
+  />
 </template>
+
+<style lang="scss" scoped>
+:deep(.gantt_task .gantt_task_scale .gantt_scale_cell) {
+  color: #000000;
+}
+
+:deep(.gantt_grid_scale .gantt_grid_head_cell) {
+  color: #000000;
+}
+
+:deep(.gantt_grid_data .gantt_cell) {
+  color: #000000;
+}
+:deep(.gantt_task_content) {
+  font-size: 18px;
+}
+:deep(.gantt_tree_content) {
+  font-size: 18px;
+}
+:deep(.gantt_scale_cell) {
+  font-size: 18px;
+}
+:deep(.gantt_grid_scale) {
+  font-size: 18px;
+}
+</style>

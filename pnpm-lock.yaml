@@ -5,12 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@dhtmlx/gantt-data-provider':
-    specifier: ^0.2.0
-    version: 0.2.0
-  '@dhtmlx/trial-vue-gantt':
-    specifier: ^1.1.2
-    version: 1.1.2(vue@3.3.4)
   '@iconify-icons/fluent-mdl2':
     specifier: ^1.2.1
     version: 1.2.1
@@ -54,8 +48,8 @@ dependencies:
     specifier: ^1.11.8
     version: 1.11.8
   dhtmlx-gantt:
-    specifier: ^8.0.2
-    version: 8.0.2
+    specifier: link:/Users/chennanlei/Downloads/gantt_trial
+    version: link:../../../Downloads/gantt_trial
   echarts:
     specifier: ^5.4.2
     version: 5.4.2
@@ -1077,18 +1071,6 @@ packages:
   /@ctrl/tinycolor@3.6.0:
     resolution: {integrity: sha512-/Z3l6pXthq0JvMYdUFyX9j0MaCltlIn6mfh9jLyQwg5aPKxkyNa0PTHtU1AlFXLNk55ZuAeJRcpvq+tmLfKmaQ==}
     engines: {node: '>=10'}
-    dev: false
-
-  /@dhtmlx/gantt-data-provider@0.2.0:
-    resolution: {integrity: sha512-/KQXzx+oSVxb97ymQ7T+P5Yznr8EOUXrFZfenOrQdskZLhmDcR28NuDPv1qnULpepN5ifbyUFb2Roh2Ah6B0sA==}
-    dev: false
-
-  /@dhtmlx/trial-vue-gantt@1.1.2(vue@3.3.4):
-    resolution: {integrity: sha512-UVHaMZxSSnGM+Bmxv2T6uEs/jmLmaDBUup8BbFtpGV2H+k2j/VGIZ+YVLAsiXtrK0etikjv536DH7eKtfUFX9Q==}
-    peerDependencies:
-      vue: ^3.0.0
-    dependencies:
-      vue: 3.3.4
     dev: false
 
   /@element-plus/icons-vue@2.1.0(vue@3.3.4):
@@ -3145,10 +3127,6 @@ packages:
     resolution: {integrity: sha512-lrbCJwD9saUQrqUfXvl6qoM+QN3W7tLV5pAOs+OqOmopCCz/JkE05MHedJR1xfk4IAnZuJXPVuN5+7jNA2ZCiA==}
     dev: false
     optional: true
-
-  /dhtmlx-gantt@8.0.2:
-    resolution: {integrity: sha512-q3heHCk+YhPuQnqN5hgao/qjQL2cPPmgEiCVDaIKcVVWvRar1pLX6ZfCd0VQL2uYx3/1WBh/mwGLnWisi+/IlQ==}
-    dev: false
 
   /didyoumean@1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
